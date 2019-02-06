@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+
+<html lang="en" class="no-js">
+<!-- author: Navdeep Kaur Brar
+The main search page for twitter miner in which the search box is present and tweets are loaded when search button is clicked
+The css customStyling is used to style the mainPage
+The data is populated via javascript and jQuery using mainPage.js -->
+    <head>
+        <title>Twitter Miner</title>
+        <!-- The css for styling the main page -->
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/customStyling.css")">
+        <!-- The jquery jas file to run the jQuery queries-->
+         <script src="@routes.Assets.versioned("javascripts/jquery-3.3.1.min.js")"></script>
+          
+    </head>
+    <body class="searchPage">
+    
+        <!-- The Search Form containing the input box and search button. On form submit. 
+        the submit jQuery in  mainPage.js and tweet data is rendered-->
+         <center><main class="search-area">
+         <h1>Twitter Miner</h1>
+            <div class="div1">
+                   <form class="form-wrapper cf" id="searchform">
+                    <input id="searchInput" class="searchbox" name= "searchValue" type="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Enter search terms"/>
+                    <button id="searchbtn" class="searchtab" type="submit">Search</button>
+                </form>
+                </div>
+                </main></center>
+                
+        <div class="div2">
+        <!-- The searched tweets are displayed here on submit button click-->
+        </div>
+        <!-- The script for handling the functionality on submit button click via jQuery -->
+       <script src="@routes.Assets.versioned("javascripts/mainPage.js")"></script>
+    </body>
+</html>
+ 

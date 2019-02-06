@@ -1,0 +1,61 @@
+@import filters.infoRepository;
+@(info: infoRepository)
+<!DOCTYPE html>
+
+<html lang="en" class="no-js">
+
+<!-- author: Anumeet
+The userPage for twitter miner in which the user Profile Info and latest ten tweets are displayed for the username hyperlink which is clicked.
+The css profileStyling is used to style the locationPage
+import: The infoRepository is imported to get profile data and ten latest tweets to display in the page-->
+    <head>
+        <title>Twitter Miner - Profile (@info.getScreenName())</title>
+        <meta http-equiv="Content-Security-Policy" content="default-src *;
+   img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+   style-src  'self' 'unsafe-inline' *">
+        <link rel="shortcut icon" type="image/png" href="@info.getImageUrl()">
+        <!-- The css profileStyling is used to style the page-->
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/profileStyling.css")" />
+         <!-- The jQuery js file to execute scripts and load data when page is rendered-->
+        <script src="@routes.Assets.versioned("javascripts/jquery-3.3.1.min.js")"></script>
+    </head>
+    
+    <body class="profilePage">
+    <center><main class="profileDisplay">
+        <div class="div1">
+        <!-- The Profile info being displayed -->
+        <h1>@info.getName()</h1>
+            <img class="userImage" src="@info.getImageUrl()")">
+            <p class="center">ID: @info.getId()</p>        
+            @if(info.getLocation()!= null) {
+                <p class="center">LOCATION: @info.getLocation()</p>
+            }
+            @if(info.getScreenName()!= null) {
+                <p class="center">TWITTER LINK:  <a target="_blank" href="https://twitter.com/@info.getScreenName()">@info.getScreenName()</a></p>
+            }
+            @if(info.getDescription()!= null) {
+                <p class="center">DESCRIPTION: @info.getDescription()</p>
+            }
+            <p class="center">FOLLOWERS: @info.getFollowersCount()</p>
+            @if(info.getPublicUrl()!= null) {
+                <p class="center">URL: <a target="_blank" href="@info.getPublicUrl()">@info.getPublicUrl()</a></p>
+            }
+             @if(info.getDescription()!= null) {
+                <p class="center">FRIENDS COUNT: @info.getFriendsCount()</p>
+            }
+            </main>
+            </div>
+            <div class="tweetsDisplay">
+            <p class="head"><u>LATEST TEN TWEETS</u></p>
+            <!-- The Latest ten tweets being displayed -->
+            <ol>
+            @for(tweet <- info.getTweetData()) {
+                <li>@tweet </li><br>
+                        }
+                        </ol>
+        </div>
+        </main>
+        </center>
+    </body>
+</html>
+

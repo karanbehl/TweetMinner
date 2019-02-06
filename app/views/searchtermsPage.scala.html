@@ -1,0 +1,36 @@
+@import filters.infoRepository;
+@(info: infoRepository)
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<!-- author: Komaldeep Singh
+The searchterms Page for twitter miner in which the disctinct tweet words are displayed with frequencies when search terms hyerlink is clicked
+The css profileStyling is used to style the seacrhtermsPage
+import: The infoRepository is imported to get tweet words data to display in the page-->
+    <head>
+        <title>Twitter Miner - Search Terms (@info.getSearchTerms())</title>
+        <!-- The css profileStyling is used to style the page-->
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("stylesheets/profileStyling.css")" />
+        <!-- The jQuery js file to execute scripts and load data when page is rendered-->
+        <script src="@routes.Assets.versioned("javascripts/jquery-3.3.1.min.js")"></script>
+    </head>
+    
+    <body class="profilePage">
+    <center><main class="profileDisplay">
+        <div class="div1">
+        <h1>Search Terms: @info.getSearchTerms()</h1>
+            </main>
+            </div>
+            <div class="tweetsDisplay">
+            <p class="head"><u>DISTINCT WORDS COUNT</u></p>
+            <!-- The distinct words being displayed -->
+            <ol>
+            @for(word <- info.getCountList()) {
+                <li>@word </li><br>
+                        }
+                        </ol>
+        </div>
+        </main>
+        </center>
+    </body>
+</html>
+
