@@ -1,12 +1,12 @@
 [<img src="https://img.shields.io/travis/playframework/play-java-starter-example.svg"/>](https://travis-ci.org/playframework/play-java-starter-example)
 
-# play-java-starter-example
+# TweetMinner
 
-This is a starter application that shows how Play works.  Please see the documentation at https://www.playframework.com/documentation/latest/Home for more details.
+This project is based on PlayFramework, a full-stack reactive framework for the JVM. Project focus on applying concepts such as functional programming, lambdas, streams, asynchronous programming with futures, and actor-based programming, in the context of a web application. This application fetched tweets from twitter.com using twitter4j API, based on the search keyword entered by the user. It also has other features like searching for tweets with respect to geolocation, hashtags, etc. Even the user profile can be displayed. Moreover, complex operations like sentiment analysis and counting words can also be performed.
 
 ## Running
 
-Run this using [sbt](http://www.scala-sbt.org/).  If you downloaded this project from http://www.playframework.com/download then you'll find a prepackaged version of sbt in the project directory:
+Run this using [sbt](http://www.scala-sbt.org/). 
 
 ```
 sbt run
@@ -14,12 +14,3 @@ sbt run
 
 And then go to http://localhost:9000 to see the running web application.
 
-## Controllers
-
-
-
-## Components
-
-
-## Filters
-.
